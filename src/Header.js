@@ -2,7 +2,6 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun } from "@fortawesome/free-solid-svg-icons";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
-import "@fortawesome/fontawesome-free/css/all.css";
 
 const Header = ({ toggle, mode }) => {
   const handleClick = () => {
