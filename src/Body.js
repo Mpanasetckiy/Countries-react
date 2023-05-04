@@ -1,20 +1,36 @@
 import React, { useEffect, useState } from "react";
 import Data from "./data/data.json";
-
 import { Link } from "react-router-dom";
 
 const Body = () => {
   const [data, setData] = useState([]);
+  const [select, setSelect] = useState("");
   useEffect(() => {
     setData(Data);
   }, []);
+
   const handleInputChange = ({ target }) => {
     console.log("Look for: ", target.value);
+    const inputName = target.value.toLowerCase().trim();
+    const foundedCountries = Data.filter(({ name }) => {
+      return name.toLowerCase().includes(inputName);
+    });
+    setData(foundedCountries);
   };
 
   const handleSelectChange = ({ target }) => {
     console.log("Selected:", target.value);
+    setSelect(target.value);
+    if (target.value !== "") {
+      const filteredData = Data.filter(({ region }) => {
+        return region.toLowerCase() === target.value;
+      });
+      setData(filteredData);
+    } else {
+      setData(Data);
+    }
   };
+
   return (
     <>
       <div className="search__bar">
@@ -24,9 +40,9 @@ const Body = () => {
           onChange={handleInputChange}
         />
         <select name="continents" id="continents" onChange={handleSelectChange}>
-          <option value="">Filter by Region</option>
+          <option value={select}>Filter by Region</option>
           <option value="africa">Africa</option>
-          <option value="america">America</option>
+          <option value="americas">Americas</option>
           <option value="asia">Asia</option>
           <option value="oceania">Oceania</option>
           <option value="europe">Europe</option>
