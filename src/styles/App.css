@@ -40,6 +40,10 @@ header {
   margin-top: 3rem;
 }
 
+.search__bar input {
+  width: 250px;
+}
+
 input,
 select {
   height: 50px;
@@ -85,4 +89,53 @@ section {
 .country__props {
   text-align: left;
   padding-left: 2rem;
+}
+
+.stat__container {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 45% 45%;
+  column-gap: 10%;
+  width: 90%;
+}
+
+.stat__photo {
+  width: 500px;
+}
+
+.stat__photo img {
+  width: 100%;
+}
+
+.stat__props {
+  padding: 0 2rem;
+}
+
+.props__wrapper {
+  display: flex;
+  column-gap: 5rem;
+}
+
+.props__wrapper p {
+  margin: 0 0 0.5rem;
+}
+
+.backBtn {
+  height: 40px;
+  width: 100px;
+  border: none;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+  color: #333333;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.backBtn:hover {
+  background-color: #f2f2f2;
+}
+
+.stat__back {
+  padding-left: 5%;
+  margin: 2rem 0;
 }
