@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Body = () => {
   const [data, setData] = useState([]);
-  const [select, setSelect] = useState("");
+  //   const [select, setSelect] = useState("");
   useEffect(() => {
     setData(Data);
   }, []);
@@ -20,7 +20,7 @@ const Body = () => {
 
   const handleSelectChange = ({ target }) => {
     console.log("Selected:", target.value);
-    setSelect(target.value);
+    // setSelect(target.value);
     if (target.value !== "") {
       const filteredData = Data.filter(({ region }) => {
         return region.toLowerCase() === target.value;
@@ -40,7 +40,7 @@ const Body = () => {
           onChange={handleInputChange}
         />
         <select name="continents" id="continents" onChange={handleSelectChange}>
-          <option value={select}>Filter by Region</option>
+          <option value="">Filter by Region</option>
           <option value="africa">Africa</option>
           <option value="americas">Americas</option>
           <option value="asia">Asia</option>
