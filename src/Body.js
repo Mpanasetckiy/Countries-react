@@ -42,7 +42,7 @@ const Body = () => {
             region,
             capital,
           }) => (
-            <Link to={`/countries/${alpha3Code}`}>
+            <Link to={`/${alpha3Code}`}>
               <div className="card" key={name}>
                 <div className="img__wrapper">
                   <img src={png} alt={name} />

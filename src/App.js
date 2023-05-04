@@ -13,7 +13,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Body />} />
-        <Route path="/countries/:code" element={<CountryStats />} />
+        <Route path="/:code" element={<CountryStats />} />
       </Routes>
     </BrowserRouter>
   );
