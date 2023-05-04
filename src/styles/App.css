@@ -3,7 +3,8 @@
   --secondary-color: #6c757d;
   --body-main-color: hsl(0, 0%, 98%);
   --body-secondary-color: hsl(0, 0%, 100%);
-  --text-color: #343a40;
+  --text-color: hsl(200, 15%, 8%);
+  --input-color: hsl(0, 0%, 52%);
 }
 
 /* Define styles for the light theme */
@@ -16,19 +17,32 @@ body.light-mode {
 body.dark-mode {
   --body-main-color: hsl(207, 26%, 17%);
   --text-color: hsl(0, 0%, 100%);
+  --body-secondary-color: hsl(209, 23%, 22%);
 }
 
 body {
   background-color: var(--body-main-color);
 }
 
+h2,
+h3,
+h1,
+p {
+  color: var(--text-color);
+}
+
 header {
-  /*  border-bottom: 1px solid gray; */
   background-color: var(--body-secondary-color);
   display: flex;
   justify-content: space-between;
   padding: 0 2rem 0 2rem;
   align-items: center;
+}
+
+header div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .search__bar {
@@ -51,6 +65,8 @@ select {
   border-radius: 5px;
   padding: 0 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: var(--input-color);
+  background-color: var(--body-secondary-color);
 }
 
 select {
@@ -75,6 +91,12 @@ section {
   max-width: 250px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
+  padding-bottom: 1rem;
+}
+
+a:hover {
+  filter: brightness(0.8);
+  transition: all 0.3s ease-in;
 }
 
 .img__wrapper {
@@ -125,14 +147,14 @@ section {
   width: 100px;
   border: none;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-  background-color: #ffffff;
-  color: #333333;
+  background-color: var(--body-secondary-color);
+  color: var(--text-color);
   cursor: pointer;
   transition: all 0.3s ease-in;
 }
 
 .backBtn:hover {
-  background-color: #f2f2f2;
+  filter: brightness(0.9);
 }
 
 .stat__back {

@@ -42,19 +42,19 @@ const Body = () => {
             region,
             capital,
           }) => (
-            <Link to={`/${alpha3Code}`}>
-              <div className="card" key={name}>
+            <div className="card" key={name}>
+              <Link to={`/${alpha3Code}`}>
                 <div className="img__wrapper">
                   <img src={png} alt={name} />
                 </div>
-                <h3>{name}</h3>
-                <div className="country__props">
-                  <p>Population: {population}</p>
-                  <p>Region: {region}</p>
-                  <p>Capital: {capital}</p>
-                </div>
+              </Link>
+              <h3>{name}</h3>
+              <div className="country__props">
+                <p>Population: {population}</p>
+                <p>Region: {region}</p>
+                <p>Capital: {capital}</p>
               </div>
-            </Link>
+            </div>
           )
         )}
       </section>
