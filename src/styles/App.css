@@ -172,6 +172,42 @@ span {
   font-weight: bold;
 }
 
+/* Site footer */
+
+.footer__wrap {
+  display: flex;
+  border-top: 1px solid var(--text-color);
+  padding: 1rem 0 1rem;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.img__wrap {
+  height: 2rem;
+}
+
+.footer__img:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+footer img {
+  height: 100%;
+  background-color: var(--paper);
+  border-radius: 2px;
+  transition: all 0.5s ease;
+}
+
+.footer__links {
+  display: flex;
+  column-gap: 1rem;
+}
+
+.footer__logo {
+  text-align: center;
+}
+
 @media screen and (max-width: 425px) {
   header {
     padding: 0 1rem 0 1rem;

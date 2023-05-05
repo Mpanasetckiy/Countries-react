@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
+import Footer from "./Footer";
 import Data from "./data/data.json";
 
 const CountryStats = () => {
@@ -36,70 +37,73 @@ const CountryStats = () => {
   };
 
   return (
-    <div>
-      <div className="stat__back">
-        <button className="backBtn" onClick={goBack}>
-          Back
-        </button>
-      </div>
-      <div className="stat__container">
-        <div className="stat__photo">
-          <img src={png} alt="" />
+    <>
+      <div>
+        <div className="stat__back">
+          <button className="backBtn" onClick={goBack}>
+            Back
+          </button>
         </div>
-        <div className="stat__props">
-          <h1>{name}</h1>
-          <div className="props__wrapper">
-            <div>
-              <p>
-                <span> Native Name:</span>
-                {nativeName}
-              </p>
+        <div className="stat__container">
+          <div className="stat__photo">
+            <img src={png} alt="" />
+          </div>
+          <div className="stat__props">
+            <h1>{name}</h1>
+            <div className="props__wrapper">
+              <div>
+                <p>
+                  <span> Native Name:</span>
+                  {nativeName}
+                </p>
 
-              <p>
-                <span>Population:</span> {population}
-              </p>
-              <p>
-                <span>Region:</span> {region}
-              </p>
-              <p>
-                <span>Sub Region:</span> {subregion}
-              </p>
-              <p>
-                <span>Capital:</span> {capital}
-              </p>
+                <p>
+                  <span>Population:</span> {population}
+                </p>
+                <p>
+                  <span>Region:</span> {region}
+                </p>
+                <p>
+                  <span>Sub Region:</span> {subregion}
+                </p>
+                <p>
+                  <span>Capital:</span> {capital}
+                </p>
+              </div>
+              <div>
+                <p>
+                  <span>Top Level Domain:</span> {topLevelDomain}
+                </p>
+                <p>
+                  <span>Currencies:</span>{" "}
+                  {currencies && currencies.map((e) => <>{e.name}</>)}
+                </p>
+                <p>
+                  <span>Languages:</span>{" "}
+                  {languages && languages.map((e) => <>{e.name}</>)}
+                </p>
+              </div>
             </div>
-            <div>
+            <div className="border__wrap">
               <p>
-                <span>Top Level Domain:</span> {topLevelDomain}
+                <span>Border Countries:</span>
               </p>
-              <p>
-                <span>Currencies:</span>{" "}
-                {currencies && currencies.map((e) => <>{e.name}</>)}
-              </p>
-              <p>
-                <span>Languages:</span>{" "}
-                {languages && languages.map((e) => <>{e.name}</>)}
-              </p>
+              {borders &&
+                borderCountries.map(({ name, alpha3Code }) => (
+                  <button
+                    key={name}
+                    className="backBtn"
+                    onClick={() => handleClick(alpha3Code)}
+                  >
+                    {name}
+                  </button>
+                ))}
             </div>
-          </div>
-          <div className="border__wrap">
-            <p>
-              <span>Border Countries:</span>
-            </p>
-            {borders &&
-              borderCountries.map(({ name, alpha3Code }) => (
-                <button
-                  key={name}
-                  className="backBtn"
-                  onClick={() => handleClick(alpha3Code)}
-                >
-                  {name}
-                </button>
-              ))}
           </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 
