@@ -161,3 +161,12 @@ a:hover {
   padding-left: 5%;
   margin: 2rem 0;
 }
+
+.border__wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+span {
+  font-weight: bold;
+}

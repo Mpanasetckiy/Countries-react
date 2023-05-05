@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const Body = () => {
   const [data, setData] = useState([]);
-  //   const [select, setSelect] = useState("");
   useEffect(() => {
     setData(Data);
   }, []);
@@ -20,7 +19,6 @@ const Body = () => {
 
   const handleSelectChange = ({ target }) => {
     console.log("Selected:", target.value);
-    // setSelect(target.value);
     if (target.value !== "") {
       const filteredData = Data.filter(({ region }) => {
         return region.toLowerCase() === target.value;
@@ -66,9 +64,16 @@ const Body = () => {
               </Link>
               <h3>{name}</h3>
               <div className="country__props">
-                <p>Population: {population}</p>
-                <p>Region: {region}</p>
-                <p>Capital: {capital}</p>
+                <p>
+                  <span>Population:</span> {population}
+                </p>
+                <p>
+                  <span>Region:</span> {region}
+                </p>
+                <p>
+                  <span>Capital: </span>
+                  {capital}
+                </p>
               </div>
             </div>
           )

@@ -1,10 +1,12 @@
 import { useParams, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import Data from "./data/data.json";
 
 const CountryStats = () => {
   const { code } = useParams();
   const navigate = useNavigate();
   const country = Data.find((c) => c.alpha3Code === code);
+  const [currentCountry, setCurrentCountry] = useState(country);
   const {
     name,
     borders,
@@ -17,7 +19,17 @@ const CountryStats = () => {
     currencies,
     languages,
     flags: { png },
-  } = country;
+  } = currentCountry;
+
+  const handleClick = (value) => {
+    const newCountry = Data.find((c) => c.alpha3Code === value);
+    setCurrentCountry(newCountry);
+  };
+  const borderCountries = Data.filter(({ alpha3Code }) => {
+    if (borders) {
+      return borders.includes(alpha3Code);
+    }
+  });
 
   const goBack = () => {
     navigate(-1);
@@ -39,32 +51,55 @@ const CountryStats = () => {
           <div className="props__wrapper">
             <div>
               <p>
-                Native Name: <span>{nativeName}</span>
+                <span> Native Name:</span>
+                {nativeName}
               </p>
-              <p>Population: {population}</p>
-              <p>Region: {region}</p>
-              <p>Sub Region: {subregion}</p>
-              <p>Capital: {capital}</p>
+
+              <p>
+                <span>Population:</span> {population}
+              </p>
+              <p>
+                <span>Region:</span> {region}
+              </p>
+              <p>
+                <span>Sub Region:</span> {subregion}
+              </p>
+              <p>
+                <span>Capital:</span> {capital}
+              </p>
             </div>
             <div>
-              <p>Top Level Domain: {topLevelDomain}</p>
               <p>
-                Currencies:{" "}
+                <span>Top Level Domain:</span> {topLevelDomain}
+              </p>
+              <p>
+                <span>Currencies:</span>{" "}
                 {currencies.map((e) => (
                   <>{e.name}</>
                 ))}
               </p>
               <p>
-                Languages:{" "}
+                <span>Languages:</span>{" "}
                 {languages.map((e) => (
                   <>{e.name}</>
                 ))}
               </p>
             </div>
           </div>
-          <div>
-            <p>Border Countries:</p>
-            {borders && borders.map((e) => <button>{e}</button>)}
+          <div className="border__wrap">
+            <p>
+              <span>Border Countries:</span>
+            </p>
+            {borders &&
+              borderCountries.map(({ name, alpha3Code }) => (
+                <button
+                  key={name}
+                  className="backBtn"
+                  onClick={() => handleClick(alpha3Code)}
+                >
+                  {name}
+                </button>
+              ))}
           </div>
         </div>
       </div>
