@@ -74,15 +74,11 @@ const CountryStats = () => {
               </p>
               <p>
                 <span>Currencies:</span>{" "}
-                {currencies.map((e) => (
-                  <>{e.name}</>
-                ))}
+                {currencies && currencies.map((e) => <>{e.name}</>)}
               </p>
               <p>
                 <span>Languages:</span>{" "}
-                {languages.map((e) => (
-                  <>{e.name}</>
-                ))}
+                {languages && languages.map((e) => <>{e.name}</>)}
               </p>
             </div>
           </div>

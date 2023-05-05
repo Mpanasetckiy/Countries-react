@@ -202,6 +202,7 @@ span {
 
   .img__wrapper {
     width: unset;
+    height: unset;
   }
 
   h2 {
