@@ -53,10 +53,8 @@ const CountryStats = () => {
             <div className="props__wrapper">
               <div>
                 <p>
-                  <span> Native Name:</span>
-                  {nativeName}
+                  <span> Native Name:</span> {nativeName}
                 </p>
-
                 <p>
                   <span>Population:</span> {population}
                 </p>
