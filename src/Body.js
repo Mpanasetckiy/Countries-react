@@ -65,7 +65,8 @@ const Body = () => {
               <h3>{name}</h3>
               <div className="country__props">
                 <p>
-                  <span>Population:</span> {population}
+                  <span>Population:</span>{" "}
+                  {population && population.toLocaleString()}
                 </p>
                 <p>
                   <span>Region:</span> {region}

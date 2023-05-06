@@ -56,7 +56,8 @@ const CountryStats = () => {
                   <span> Native Name:</span> {nativeName}
                 </p>
                 <p>
-                  <span>Population:</span> {population}
+                  <span>Population:</span>{" "}
+                  {population && population.toLocaleString()}
                 </p>
                 <p>
                   <span>Region:</span> {region}
@@ -78,7 +79,13 @@ const CountryStats = () => {
                 </p>
                 <p>
                   <span>Languages:</span>{" "}
-                  {languages && languages.map((e) => <>{e.name}</>)}
+                  {languages &&
+                    languages.map((e, i) => (
+                      <React.Fragment key={e.code}>
+                        {e.name}
+                        {i !== languages.length - 1 && ", "}
+                      </React.Fragment>
+                    ))}
                 </p>
               </div>
             </div>
