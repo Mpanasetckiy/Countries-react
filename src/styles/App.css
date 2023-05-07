@@ -5,6 +5,7 @@
   --body-secondary-color: hsl(0, 0%, 100%);
   --text-color: hsl(200, 15%, 8%);
   --input-color: hsl(0, 0%, 52%);
+  --toggle-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Define styles for the light theme */
@@ -18,6 +19,7 @@ body.dark-mode {
   --body-main-color: hsl(207, 26%, 17%);
   --text-color: hsl(0, 0%, 100%);
   --body-secondary-color: hsl(209, 23%, 22%);
+  --toggle-color: hsla(0, 0%, 100%, 0.3);
 }
 
 body {
@@ -47,6 +49,18 @@ header div {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+header img {
+  width: 25px;
+  border-radius: 50%;
+  padding: 4px;
+  border: none;
+}
+
+header img:hover {
+  background-color: var(--toggle-color);
+  transition: background-color 0.4s ease-in-out;
 }
 
 .search__bar {

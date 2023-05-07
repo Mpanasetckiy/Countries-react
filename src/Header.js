@@ -1,7 +1,6 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun } from "@fortawesome/free-solid-svg-icons";
-import { faMoon } from "@fortawesome/free-solid-svg-icons";
+import Sun from "./data/sun.png";
+import Moon from "./data/moon.png";
 
 const Header = ({ toggle, mode }) => {
   const handleClick = () => {
@@ -12,12 +11,8 @@ const Header = ({ toggle, mode }) => {
       <header>
         <h2>Where in the world?</h2>
         <div>
-          <FontAwesomeIcon
-            icon={mode ? faMoon : faSun}
-            style={{ color: "var(--text-color)" }}
-            onClick={handleClick}
-          />
-          <p>{mode ? "Dark Mode" : "Light Mode"}</p>
+          <img src={mode ? Moon : Sun} alt="toggle img" onClick={handleClick} />
+          <p onClick={handleClick}>{mode ? "Dark Mode" : "Light Mode"}</p>
         </div>
       </header>
     </>
